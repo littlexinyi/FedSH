@@ -1,15 +1,13 @@
 # FedSH: Towards Privacy-preserving Text-based Person Re-Identification
-[![LICENSE]]
 
+[![LICENSE](https://img.shields.io/badge/license-Apache2.0-green)](https://github.com/littlexinyi/FedSH/blob/main/LICENSE)
 [![Python](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/)
 ![PyTorch](https://img.shields.io/badge/pytorch-1.11.0-%237732a8) 
 
 The implementation of paper [**FedSH: Towards Privacy-preserving Text-based Person Re-Identification**]
 
-FedSH is a framework for exploring privacy-preserving text-based person ReID.
 
-
-## Requirement
+## Requirements
 
 ```
 torch >= 1.7.0
@@ -24,9 +22,9 @@ Pillow 8.2.0
 
   Download the CUHK-PEDES dataset from [here](https://github.com/ShuangLI59/Person-Search-with-Natural-Language-Description) 
    
-  Organize them in `dataset` folder as follows:
+  Organize them in `data` folder as follows:
    ~~~
-   |-- dataset/
+   |-- data/
    |   |-- <CUHK-PEDES>/
    |       |-- imgs
                |-- cam_a
@@ -35,7 +33,7 @@ Pillow 8.2.0
                |-- CUHK03
                |-- Market
    |       |-- reid_raw.json
-   
+   |-- fllib/
    ~~~
  
 
@@ -44,16 +42,16 @@ Pillow 8.2.0
   Download the ICFG-PEDES dataset from [here](https://github.com/zifyloo/SSAN)   
 
 
-   Organize them in `dataset` folder as follows:
+   Organize them in `data` folder as follows:
 
    ~~~
-   |-- dataset/
+   |-- data/
    |   |-- <ICFG-PEDES>/
    |       |-- imgs
                |-- test
                |-- train 
    |       |-- ICFG_PEDES.json
-   
+   |-- fllib/
    ~~~
 3. **Data preprocessing**
 
