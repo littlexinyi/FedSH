@@ -1,0 +1,56 @@
+dataset:
+  data_name: "ICFG-PEDES"
+  root: './data/'
+  download: true
+  simulated: false
+  simulated_root: './simulated/'
+  distribution_type: 'iid' # options: iid, non_iid_class, non_iid_dir
+  class_per_client: 2
+  alpha: 0.9
+  min_size: 1
+  caption_length_max: 100
+  part: 6                     #the num of image part
+  feature_length: 1024        #the length of feature
+  vocab_size: 2500            # "ICFG-PEDES"
+  class_num: 3102             #"ICFG-PEDES"
+server: 
+  clients_num: 10   
+  rounds: 30
+  clients_per_round: 5        #default:5
+  random_select: true
+  aggregation_rule: fedavg    #do not need to change
+  aggregation_detail: 
+    type: equal         #options: equal, weight_by_size
+    Backbone: true  #the parameters of pre-trained backbone is aggregated or not
+    PRL: true   #the module of PRL is used or not
+  loss_fn: "cross_entropy"  # options: cross_entropy, mse; defualt is cross entropy
+  test_interval: 1
+  model_name: SSAN    #SSAN
+  records_save_folder: './results/'
+
+
+client:
+  batch_size: 32
+  test_batch_size: 32
+  local_epoch: 20
+  epoch_begin: 10
+  epoch_decay: [20, 40]
+  loss_fn: "cross_entropy"      # options: cross_entropy, mse; defualt is cross entropy
+  optimizer:
+    type: "Adam"           # options: Adam, SGD,FedProx
+    mu: 0.001              # the parameter of FedProx
+    lr: 0.001
+    momentum: 0.9
+    weight_decay: 0
+    adam_alpha: 0.9
+    adam_beta: 0.999
+  margin: 0.2
+  cr_beta: 0.1
+  
+log_level: "INFO"            #options: DEBUG INFO
+seed: 0
+is_visualization: true        # if true, start the visdom first
+trial_name: 'test_model'
+round_name: current_round
+resume: true
+
