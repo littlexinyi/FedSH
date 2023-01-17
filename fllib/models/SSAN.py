@@ -186,11 +186,11 @@ class TextImgPersonReidNet(nn.Module):
 
         image_local = torch.cat(image_local, 2)
         #PRL之视觉，MV-NLN,学习每一个part之间的relation
-        # if(self.config.server.aggregation_detail.PRL):
-        #     image_non_local = self.leaky_relu(image_local)
-        #     image_non_local = self.non_local_net(image_non_local)
-        # else:
-        #     image_non_local = image_local
+        if(self.config.server.aggregation_detail.PRL):
+            image_non_local = self.leaky_relu(image_local)
+            image_non_local = self.non_local_net(image_non_local)
+        else:
+            image_non_local = image_local
         image_non_local = self.leaky_relu(image_local)
         image_non_local = self.non_local_net(image_non_local)        
         return image_global, image_local, image_non_local
@@ -226,11 +226,11 @@ class TextImgPersonReidNet(nn.Module):
             text_local.append(text_feature_local_conv_p)
         text_local = torch.cat(text_local, dim=2)
         #PRL之文本，MV-NLN,学习每一个part之间的relation
-        # if(self.config.server.aggregation_detail.PRL):        
-        #     text_non_local = self.leaky_relu(text_local)
-        #     text_non_local = self.non_local_net(text_non_local)
-        # else:
-        #     text_non_local = text_local
+        if(self.config.server.aggregation_detail.PRL):        
+            text_non_local = self.leaky_relu(text_local)
+            text_non_local = self.non_local_net(text_non_local)
+        else:
+            text_non_local = text_local
         text_non_local = self.leaky_relu(text_local)
         text_non_local = self.non_local_net(text_non_local)
         return text_global, text_local, text_non_local
