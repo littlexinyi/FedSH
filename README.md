@@ -82,6 +82,17 @@ then run the `process_CUHK_data.py` and `process_ICFG_data.py` in [SSAN](https:/
 ## Citation
 If you find FedSH useful in your work, you can cite the following paper:
 
+@ARTICLE{10310121,
+  author={Ma, Wentao and Wu, Xinyi and Zhao, Shan and Zhou, Tongqing and Guo, Dan and Gu, Lichuan and Cai, Zhiping and Wang, Meng},
+  journal={IEEE Transactions on Multimedia}, 
+  title={FedSH: Towards Privacy-Preserving Text-Based Person Re-Identification}, 
+  year={2024},
+  volume={26},
+  number={},
+  pages={5065-5077},
+  keywords={Semantics;Training;Task analysis;Privacy;Visualization;Federated learning;Servers;Text-based Person ReID;Cross-modal Retrieval;Federated Learning;Multi-granularity Representation},
+  doi={10.1109/TMM.2023.3330091}}
+
 
 ## Copyright
 * The code is provided by Wentao Ma and Xinyi Wu from NUDT. If you have any question, please contact wtma@nudt.edu.cn or wuxinyi17@nudt.edu.cn.
